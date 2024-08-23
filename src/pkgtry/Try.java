@@ -6,8 +6,11 @@ import java.util.Random;
 public class Try {
 
     public static void main(String[] args) {
+        
         Scanner scan = new Scanner(System.in);
         Random rand = new Random();
+        Try2nd tr = new Try2nd();
+        
         int min = 1, max = 50, max_guess = 5, guess;
         boolean guessed = false;
         
@@ -32,6 +35,9 @@ public class Try {
                 System.out.println("Lower!");
             }
             System.out.println((max_guess - (i + 1)) + " Attempts Left");
+            if (i == 3){
+                tr.give_up();
+            }
         }
         
         if (!guessed) {
