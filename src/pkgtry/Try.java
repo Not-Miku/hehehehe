@@ -1,50 +1,27 @@
 package pkgtry;
 
-import java.util.Scanner;
-import java.util.Random;
+import java.util.*;
 
 public class Try {
 
     public static void main(String[] args) {
-        
         Scanner scan = new Scanner(System.in);
-        Random rand = new Random();
-        Try2nd tr = new Try2nd();
+        int choice;
         
-        int min = 1, max = 50, max_guess = 5, guess;
-        boolean guessed = false;
+        System.out.println("1. Guess the Number");
+        System.out.println("2. TicTacToe");
+        System.out.print("Choose a game: ");
+        choice = scan.nextInt();
         
-        int random = (int) (rand.nextDouble() * (max - min + 1) + min);
-//        System.out.println(random);    
-        
-        System.out.println("Guess a Number Between " + min + " and " + max);
-        System.out.println("You Have " + max_guess + " Attempts");
-    
-        for (int i = 0; i < max_guess; i++) {
-            
-            System.out.print("\nEnter your guess: ");
-            guess = scan.nextInt();
-            
-            if (guess == random) {
-                System.out.println("You guessed right!");
-                guessed = true;
-                break;
-            }else if (guess < random) {
-                System.out.println("Higher!");
-            }else{
-                System.out.println("Lower!");
-            }
-            System.out.println((max_guess - (i + 1)) + " Attempts Left");
-            if (i == 3){
-                tr.give_up();
-            }
-        }
-        
-        if (!guessed) {
-            System.out.println("Game Over");
-            System.out.println("\nThe Number was " + random);
-        }
-        
-    }
-    
+        if (choice == 1){
+            System.out.println("Chosen Game: Guess the Number\n");
+            NumberGuess guess = new NumberGuess();          
+            guess.number_guess();    
+        }else if (choice == 2){
+            System.out.println("Chosen Game: TicTacToe\n");
+            Tictactoe game = new Tictactoe();
+            game.printBoard();
+            game.run();
+        }   
+    }   
 }
