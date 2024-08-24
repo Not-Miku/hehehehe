@@ -12,6 +12,7 @@ public class Tictactoe {
     
     public void run(){
         while (true) {
+            this.printBoard();
             this.playerMove();
             this.printBoard();
             if (this.checkWin()) {
@@ -23,7 +24,7 @@ public class Tictactoe {
                 break;
             }
             this.switchPlayer();
-        }
+        }      
     }
     
     private void initializeBoard() {
